@@ -1,0 +1,39 @@
+{
+        "AWSEBDockerrunVersion": 2,
+        "containerDefinations": [
+                {
+                "name": "client",
+                "image": "manikanta513/multi-client",
+                "hostname": "client",
+                "essential": false
+                },
+                {
+                "name": "worker",
+                "image": "manikanta513/multi-worker",
+                "hostname": "worker",
+                "essential": false
+                },
+                {
+                "name": "api",
+                "image": "manikanta513/server",
+                "hostname": "api",
+                "essential": false
+                },
+                {
+                "name": "nginx",
+                "image": "manikanta513/nginx",
+                "hostname": "nginx",
+                "essential": true,
+				"portMappings": [
+				  {
+				  "hostPort": 80,
+				  "containerPort": 80
+				  }
+				],
+				"links": ["client", "api"]
+                }
+
+        ]
+
+}
+
