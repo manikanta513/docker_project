@@ -5,32 +5,37 @@
                 "name": "client",
                 "image": "manikanta513/multi-client",
                 "hostname": "client",
-                "essential": false
+                "essential": false,
+		"memory": 128
+
                 },
                 {
                 "name": "worker",
                 "image": "manikanta513/multi-worker",
                 "hostname": "worker",
-                "essential": false
+                "essential": false,
+		"memory": 128
                 },
                 {
                 "name": "api",
                 "image": "manikanta513/server",
                 "hostname": "api",
-                "essential": false
+                "essential": false,
+		"memory": 128
                 },
                 {
                 "name": "nginx",
                 "image": "manikanta513/nginx",
                 "hostname": "nginx",
                 "essential": true,
-				"portMappings": [
+		"portMappings": [
 				  {
 				  "hostPort": 80,
 				  "containerPort": 80
 				  }
-				],
-				"links": ["client", "api"]
+		],
+		"links": ["client", "api"],
+		"memory": 128
                 }
 
         ]
